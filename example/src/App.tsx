@@ -1,12 +1,14 @@
 import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from 'react-native-twitter-text';
+import { parseTweet } from 'react-native-twitter-text';
 
-const result = multiply(3, 7);
+const result = parseTweet(
+  'Hello @user! Check out https://example.com #hashtag'
+);
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Result: {result.weightedLength}</Text>
     </View>
   );
 }
