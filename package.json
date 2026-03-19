@@ -30,16 +30,22 @@
     "*.podspec",
     "app.plugin.js",
     "react-native.config.js",
-    "submodules/twitter-text",
+    "submodules/twitter-text/objc/lib/**/*",
+    "submodules/twitter-text/objc/ThirdParty/IFUnicodeURL/IFUnicodeURL/**/*",
+    "submodules/twitter-text/objc/ThirdParty/IFUnicodeURL/Resources/**/*",
+    "submodules/twitter-text/objc/ThirdParty/IFUnicodeURL/IFUnicodeURL-LICENSE.txt",
+    "submodules/twitter-text/objc/ThirdParty/IFUnicodeURL/README.txt",
+    "submodules/twitter-text/objc/resources/**/*",
+    "submodules/twitter-text/objc/twitter-text.podspec",
+    "submodules/twitter-text/objc/LICENSE",
+    "submodules/twitter-text/java/src/main/**/*",
+    "submodules/twitter-text/java/pom.xml",
     "!ios/build",
     "!android/build",
     "!android/gradle",
     "!android/gradlew",
     "!android/gradlew.bat",
     "!android/local.properties",
-    "!submodules/twitter-text/.github",
-    "!submodules/twitter-text/js",
-    "!submodules/twitter-text/rb",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
@@ -125,7 +131,7 @@
     "type": "modules",
     "jsSrcsDir": "src",
     "android": {
-      "javaPackageName": "com.twittertext"
+      "javaPackageName": "com.natsuneko.twittertext"
     }
   },
   "release-it": {
