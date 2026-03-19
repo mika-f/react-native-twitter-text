@@ -33,7 +33,7 @@ apply plugin: "kotlin-android"
 apply plugin: "com.facebook.react"
 
 android {
-  namespace "com.twittertext"
+  namespace "com.natsuneko.twittertext"
 
   compileSdkVersion getExtOrDefault("compileSdkVersion")
 
@@ -60,8 +60,15 @@ android {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
   }
+
+  sourceSets {
+    main {
+      java.srcDirs += "${project.projectDir}/../submodules/twitter-text/java/src/main/java"
+    }
+  }
 }
 
 dependencies {
   implementation "com.facebook.react:react-android"
+  implementation "com.google.code.findbugs:jsr305:3.0.2"
 }

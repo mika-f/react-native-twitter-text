@@ -1,4 +1,4 @@
-package com.twittertext
+package com.natsuneko.twittertext
 
 import com.facebook.react.BaseReactPackage
 import com.facebook.react.bridge.NativeModule
