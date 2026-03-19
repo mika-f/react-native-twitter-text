@@ -60,7 +60,9 @@ const result = parseTweet('Hello, world!');
 ```ts
 import { extractEntities } from 'react-native-twitter-text';
 
-const entities = extractEntities('@jack Check out #ReactNative https://reactnative.dev');
+const entities = extractEntities(
+  '@jack Check out #ReactNative https://reactnative.dev'
+);
 // [
 //   { type: 'mention', value: '@jack', range: { start: 0, end: 5 } },
 //   { type: 'hashtag', value: '#ReactNative', range: { start: 16, end: 28 } },
@@ -91,12 +93,16 @@ extractReplyScreenname('@user hello'); // '@user' or null
 ### Validate tweets
 
 ```ts
-import { isValidTweet, isValidHashtag, tweetLength } from 'react-native-twitter-text';
+import {
+  isValidTweet,
+  isValidHashtag,
+  tweetLength,
+} from 'react-native-twitter-text';
 
-isValidTweet('Hello!');        // true
-isValidTweet('');              // false
+isValidTweet('Hello!'); // true
+isValidTweet(''); // false
 isValidHashtag('#ReactNative'); // true
-tweetLength('Hello!');         // 6
+tweetLength('Hello!'); // 6
 ```
 
 ## API Reference
@@ -129,19 +135,19 @@ interface ParseResults {
 
 ### Functions
 
-| Function | Return Type | Description |
-|---|---|---|
-| `parseTweet(text)` | `ParseResults` | Parse a tweet and return weighted length, validity, and text ranges |
-| `extractEntities(text)` | `Entity[]` | Extract all entities (URLs, hashtags, mentions, cashtags) |
-| `extractURLs(text)` | `Entity[]` | Extract URLs |
-| `extractHashtags(text)` | `Entity[]` | Extract hashtags |
-| `extractMentions(text)` | `Entity[]` | Extract @mentions |
-| `extractMentionsOrLists(text)` | `Entity[]` | Extract @mentions and list references |
-| `extractCashtags(text)` | `Entity[]` | Extract cashtags ($SYMBOL) |
-| `extractReplyScreenname(text)` | `string \| null` | Extract the replied-to screen name |
-| `isValidTweet(text)` | `boolean` | Check if a tweet is valid |
-| `isValidHashtag(text)` | `boolean` | Check if text is a valid hashtag |
-| `tweetLength(text)` | `number` | Get the weighted length of a tweet |
+| Function                       | Return Type      | Description                                                         |
+| ------------------------------ | ---------------- | ------------------------------------------------------------------- |
+| `parseTweet(text)`             | `ParseResults`   | Parse a tweet and return weighted length, validity, and text ranges |
+| `extractEntities(text)`        | `Entity[]`       | Extract all entities (URLs, hashtags, mentions, cashtags)           |
+| `extractURLs(text)`            | `Entity[]`       | Extract URLs                                                        |
+| `extractHashtags(text)`        | `Entity[]`       | Extract hashtags                                                    |
+| `extractMentions(text)`        | `Entity[]`       | Extract @mentions                                                   |
+| `extractMentionsOrLists(text)` | `Entity[]`       | Extract @mentions and list references                               |
+| `extractCashtags(text)`        | `Entity[]`       | Extract cashtags ($SYMBOL)                                          |
+| `extractReplyScreenname(text)` | `string \| null` | Extract the replied-to screen name                                  |
+| `isValidTweet(text)`           | `boolean`        | Check if a tweet is valid                                           |
+| `isValidHashtag(text)`         | `boolean`        | Check if text is a valid hashtag                                    |
+| `tweetLength(text)`            | `number`         | Get the weighted length of a tweet                                  |
 
 ## Requirements
 
@@ -157,4 +163,4 @@ interface ParseResults {
 
 ## License
 
-MIT
+- MIT and Apache-2.0 and BSD-2-Clause (see LICENSE file for details)
