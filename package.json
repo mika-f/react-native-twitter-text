@@ -29,6 +29,7 @@
     "cpp",
     "*.podspec",
     "app.plugin.js",
+    "LICENSE-TWITTER-TEXT",
     "react-native.config.js",
     "submodules/twitter-text/objc/lib/**/*",
     "submodules/twitter-text/objc/ThirdParty/IFUnicodeURL/IFUnicodeURL/**/*",
