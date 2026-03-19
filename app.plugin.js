@@ -1,5 +1,5 @@
 /**
- * Expo Config Plugin for react-native-twitter-text.
+ * Expo Config Plugin for @natsuneko-laboratory/react-native-twitter-text.
  *
  * Native module registration, podspec linking, and android source sets
  * are handled automatically by Expo's autolinking.

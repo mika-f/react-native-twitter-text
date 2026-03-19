@@ -1,7 +1,7 @@
 {
-  "name": "react-native-twitter-text",
+  "name": "@natsuneko-laboratory/react-native-twitter-text",
   "version": "0.1.0",
-  "description": "The twitter-text React Native plugin is especially fast for CJK text.",
+  "description": "A React Native plugin that provides Twitter's twitter-text parsing library via native Objective-C and Java implementations. Especially fast for CJK text compared to the JavaScript implementation.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
   "exports": {

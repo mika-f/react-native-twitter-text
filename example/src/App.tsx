@@ -1,5 +1,5 @@
 import { Text, View, StyleSheet } from 'react-native';
-import { parseTweet } from 'react-native-twitter-text';
+import { parseTweet } from '@natsuneko-laboratory/react-native-twitter-text';
 
 const result = parseTweet(
   'Hello @user! Check out https://example.com #hashtag'

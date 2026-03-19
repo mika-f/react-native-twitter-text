@@ -1,4 +1,4 @@
-# react-native-twitter-text
+# @natsuneko-laboratory/react-native-twitter-text
 
 A React Native plugin that provides Twitter's [twitter-text](https://github.com/twitter/twitter-text) parsing library via native Objective-C and Java implementations. Especially fast for CJK text compared to the JavaScript implementation.
 
@@ -12,14 +12,14 @@ A React Native plugin that provides Twitter's [twitter-text](https://github.com/
 ## Installation
 
 ```sh
-npm install react-native-twitter-text
+npm install @natsuneko-laboratory/react-native-twitter-text
 cd ios && pod install
 ```
 
 ### Expo
 
 ```sh
-npx expo install react-native-twitter-text
+npx expo install @natsuneko-laboratory/react-native-twitter-text
 ```
 
 Add the plugin to your `app.json`:
@@ -27,7 +27,7 @@ Add the plugin to your `app.json`:
 ```json
 {
   "expo": {
-    "plugins": ["react-native-twitter-text"]
+    "plugins": ["@natsuneko-laboratory/react-native-twitter-text"]
   }
 }
 ```
@@ -43,7 +43,7 @@ npx expo prebuild
 ### Parse a tweet
 
 ```ts
-import { parseTweet } from 'react-native-twitter-text';
+import { parseTweet } from '@natsuneko-laboratory/react-native-twitter-text';
 
 const result = parseTweet('Hello, world!');
 // {
@@ -58,7 +58,7 @@ const result = parseTweet('Hello, world!');
 ### Extract entities
 
 ```ts
-import { extractEntities } from 'react-native-twitter-text';
+import { extractEntities } from '@natsuneko-laboratory/react-native-twitter-text';
 
 const entities = extractEntities(
   '@jack Check out #ReactNative https://reactnative.dev'
@@ -80,7 +80,7 @@ import {
   extractMentionsOrLists,
   extractCashtags,
   extractReplyScreenname,
-} from 'react-native-twitter-text';
+} from '@natsuneko-laboratory/react-native-twitter-text';
 
 extractURLs('Visit https://example.com');
 extractHashtags('Hello #world');
@@ -97,7 +97,7 @@ import {
   isValidTweet,
   isValidHashtag,
   tweetLength,
-} from 'react-native-twitter-text';
+} from '@natsuneko-laboratory/react-native-twitter-text';
 
 isValidTweet('Hello!'); // true
 isValidTweet(''); // false
