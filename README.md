@@ -161,6 +161,10 @@ interface ParseResults {
 - [Sending a pull request](CONTRIBUTING.md#sending-a-pull-request)
 - [Code of conduct](CODE_OF_CONDUCT.md)
 
+## Disclaimer
+
+This project is not affiliated with, endorsed by, or sponsored by Twitter, Inc. (now X Corp.) or any of its subsidiaries. "twitter-text" refers to the open-source library published under the Apache 2.0 license.
+
 ## License
 
 - MIT and Apache-2.0 and BSD-2-Clause (see LICENSE file for details)
