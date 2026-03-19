@@ -8,9 +8,18 @@
     ".": {
       "source": "./src/index.tsx",
       "types": "./lib/typescript/src/index.d.ts",
+      "react-native": "./lib/module/index.js",
       "default": "./lib/module/index.js"
     },
+    "./app.plugin.js": "./app.plugin.js",
+    "./react-native.config.js": "./react-native.config.js",
     "./package.json": "./package.json"
+  },
+  "react-native": "./src/index.tsx",
+  "expo": {
+    "autolinking": {
+      "nativeModules": true
+    }
   },
   "files": [
     "src",
@@ -19,13 +28,18 @@
     "ios",
     "cpp",
     "*.podspec",
+    "app.plugin.js",
     "react-native.config.js",
+    "submodules/twitter-text",
     "!ios/build",
     "!android/build",
     "!android/gradle",
     "!android/gradlew",
     "!android/gradlew.bat",
     "!android/local.properties",
+    "!submodules/twitter-text/.github",
+    "!submodules/twitter-text/js",
+    "!submodules/twitter-text/rb",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
