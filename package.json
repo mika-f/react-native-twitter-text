@@ -40,6 +40,7 @@
     "submodules/twitter-text/objc/twitter-text.podspec",
     "submodules/twitter-text/objc/LICENSE",
     "submodules/twitter-text/java/src/main/**/*",
+    "submodules/twitter-text/java/LICENSE",
     "submodules/twitter-text/java/pom.xml",
     "!ios/build",
     "!android/build",
@@ -71,7 +72,7 @@
     "url": "git+https://github.com/mika-f/react-native-twitter-text.git"
   },
   "author": "Kanon Mochizuki <me@natsuneko.cat> (https://github.com/mika-f)",
-  "license": "MIT",
+  "license": "(MIT AND Apache-2.0 AND BSD-2-Clause)",
   "bugs": {
     "url": "https://github.com/mika-f/react-native-twitter-text/issues"
   },
