@@ -4,7 +4,8 @@ module.exports = {
       ios: {},
       android: {
         sourceDir: './android',
-        packageImportPath: 'import com.natsuneko.twittertext.TwitterTextPackage;',
+        packageImportPath:
+          'import com.natsuneko.twittertext.TwitterTextPackage;',
         packageInstance: 'new TwitterTextPackage()',
       },
     },
