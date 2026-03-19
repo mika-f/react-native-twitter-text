@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm exec vitest:*)",
+      "Bash(pnpm run build:*)",
+      "Bash(pnpm run typecheck)",
+      "Bash(pnpm run:*)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(gh pr view:*)",
+      "Edit(android/**)",
+      "Edit(example/**)",
+      "Edit(ios/**)",
+      "Edit(src/**)",
+      "Edit(lib/**)",
+      "Edit(package.json)",
+      "Edit(TwitterText.podspec)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:npmjs.com)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./.secrets)",
+      "Bash(git add .)",
+      "Bash(git add -A)",
+      "Bash(git pull *)",
+      "Bash(git push *)",
+      "Bash(git reset)",
+      "Bash(git checkout .)",
+      "Bash(git -C *)",
+      "Bash(npm publish)",
+      "Bash(pnpm publish)",
+      "Bash(yarn publish)",
+      "Edit(pnpm-lock.yaml)",
+      "Edit(yarn.lock)",
+      "Edit(package-lock.json)",
+      "Edit(submodules/**)"
+    ]
+  }
+}
