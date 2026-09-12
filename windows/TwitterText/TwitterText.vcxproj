@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This project was created for react-native-windows support; see windows/README.md -->
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(SolutionDir)\ExperimentalFeatures.props" Condition="Exists('$(SolutionDir)\ExperimentalFeatures.props')" />
+  <Choose>
+    <When Condition="'$(UseFabric)'=='true'">
+      <PropertyGroup Label="Globals">
+        <CppWinRTOptimized>true</CppWinRTOptimized>
+        <MinimalCoreWin>true</MinimalCoreWin>
+        <ProjectGuid>{1BD2B45E-4E73-4E19-B80E-21FF35893097}</ProjectGuid>
+        <ProjectName>TwitterText</ProjectName>
+        <Keyword>Win32Proj</Keyword>
+        <RootNamespace>TwitterText</RootNamespace>
+        <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+        <DefaultLanguage>en-US</DefaultLanguage>
+        <MinimumVisualStudioVersion>17.0</MinimumVisualStudioVersion>
+        <AppxPackage>false</AppxPackage>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup Label="Globals">
+        <CppWinRTOptimized>true</CppWinRTOptimized>
+        <MinimalCoreWin>true</MinimalCoreWin>
+        <ProjectGuid>{1BD2B45E-4E73-4E19-B80E-21FF35893097}</ProjectGuid>
+        <ProjectName>TwitterText</ProjectName>
+        <Keyword>Win32Proj</Keyword>
+        <RootNamespace>TwitterText</RootNamespace>
+        <DefaultLanguage>en-US</DefaultLanguage>
+        <MinimumVisualStudioVersion>16.0</MinimumVisualStudioVersion>
+        <AppContainerApplication>true</AppContainerApplication>
+        <ApplicationType>Windows Store</ApplicationType>
+        <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+  <PropertyGroup Label="ReactNativeWindowsProps">
+    <ReactNativeWindowsDir Condition="'$(ReactNativeWindowsDir)' == ''">$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), 'node_modules\react-native-windows\package.json'))\node_modules\react-native-windows\</ReactNativeWindowsDir>
+    <RunAutolinkCheck>false</RunAutolinkCheck>
+  </PropertyGroup>
+  <Import Project="$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.WindowsSdk.Default.props" />
+  <Import Project="$(ReactNativeWindowsDir)\PropertySheets\Generated\PackageVersion.g.props" Condition="Exists('$(ReactNativeWindowsDir)\PropertySheets\Generated\PackageVersion.g.props')"/>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM64">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM64">
+      <Configuration>Release</Configuration>
+      <Platform>ARM64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="ReactNativeWindowsPropertySheets" Condition="'$(ReactNativeWindowsCanary)'!='true' And '$([MSBuild]::VersionLessThan($(ReactNativeWindowsMajor).$(ReactNativeWindowsMinor).$(ReactNativeWindowsPatch), 0.76.0))'">
+    <Import Project="$(ReactNativeWindowsDir)\PropertySheets\external\Microsoft.ReactNative.Uwp.CppLib.props" Condition="'$(UseFabric)'!='true' And Exists('$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Uwp.CppLib.props')" />
+    <Import Project="$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Composition.CppLib.props" Condition="'$(UseFabric)'=='true' And Exists('$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Composition.CppLib.props')" />
+  </ImportGroup>
+  <ImportGroup Label="ReactNativeWindowsPropertySheets" Condition="'$(ReactNativeWindowsCanary)'=='true' Or '$([MSBuild]::VersionGreaterThanOrEquals($(ReactNativeWindowsMajor).$(ReactNativeWindowsMinor).$(ReactNativeWindowsPatch), 0.76.0))'">
+    <Import Project="$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.CppLib.props" Condition="Exists('$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.CppLib.props')" />
+  </ImportGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <!-- /utf-8: several regex pattern literals in TwitterTextCore.cpp embed
+           literal CJK/Arabic/Cyrillic TLD text (copied verbatim from
+           twitter-text's Objective-C source) and must be interpreted as UTF-8. -->
+      <AdditionalOptions>%(AdditionalOptions) /bigobj /utf-8</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_WINRT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>shell32.lib;user32.lib;icu.lib;windowsapp.lib;%(AdditionalDependenices)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+      <GenerateWindowsMetadata>true</GenerateWindowsMetadata>
+      <ModuleDefinitionFile>TwitterText.def</ModuleDefinitionFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <ClCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions Condition="'$(UseFabric)'=='true'">USE_FABRIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemGroup>
+    <ClInclude Include="TwitterTextModule.h" />
+    <ClInclude Include="TwitterTextCore.h" />
+    <ClInclude Include="TwitterTextConfig.h" />
+    <ClInclude Include="ReactPackageProvider.h">
+      <DependentUpon>ReactPackageProvider.idl</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="codegen\NativeTwitterTextDataTypes.g.h" />
+    <ClInclude Include="codegen\NativeTwitterTextSpec.g.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TwitterTextModule.cpp" />
+    <ClCompile Include="TwitterTextCore.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ReactPackageProvider.cpp">
+      <DependentUpon>ReactPackageProvider.idl</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="ReactPackageProvider.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TwitterText.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ReactNativeWindowsTargets" Condition="'$(ReactNativeWindowsCanary)'!='true' And '$([MSBuild]::VersionLessThan($(ReactNativeWindowsMajor).$(ReactNativeWindowsMinor).$(ReactNativeWindowsPatch), 0.76.0))'">
+    <Import Project="$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Uwp.CppLib.targets" Condition="'$(UseFabric)'!='true' And Exists('$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Uwp.CppLib.targets')" />
+    <Import Project="$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Composition.CppLib.targets" Condition="'$(UseFabric)'=='true' And Exists('$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Composition.CppLib.targets')" />
+  </ImportGroup>
+  <ImportGroup Label="ReactNativeWindowsTargets" Condition="'$(ReactNativeWindowsCanary)'=='true' Or '$([MSBuild]::VersionGreaterThanOrEquals($(ReactNativeWindowsMajor).$(ReactNativeWindowsMinor).$(ReactNativeWindowsPatch), 0.76.0))'">
+    <Import Project="$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.CppLib.targets" Condition="Exists('$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.CppLib.targets')" />
+  </ImportGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Target Name="EnsureReactNativeWindowsTargets" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references targets in your node_modules\react-native-windows folder. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="'$(UseFabric)'!='true' And !Exists('$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Uwp.CppLib.props') And ('$(ReactNativeWindowsCanary)'!='true' And '$([MSBuild]::VersionLessThan($(ReactNativeWindowsMajor).$(ReactNativeWindowsMinor).$(ReactNativeWindowsPatch), 0.76.0))')" Text="$([System.String]::Format('$(ErrorText)', '$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Uwp.CppLib.props'))" />
+    <Error Condition="'$(UseFabric)'!='true' And !Exists('$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Uwp.CppLib.targets') And ('$(ReactNativeWindowsCanary)'!='true' And '$([MSBuild]::VersionLessThan($(ReactNativeWindowsMajor).$(ReactNativeWindowsMinor).$(ReactNativeWindowsPatch), 0.76.0))')" Text="$([System.String]::Format('$(ErrorText)', '$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Uwp.CppLib.targets'))" />
+    <Error Condition="'$(UseFabric)'=='true' And !Exists('$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Composition.CppLib.props') And ('$(ReactNativeWindowsCanary)'!='true' And '$([MSBuild]::VersionLessThan($(ReactNativeWindowsMajor).$(ReactNativeWindowsMinor).$(ReactNativeWindowsPatch), 0.76.0))')" Text="$([System.String]::Format('$(ErrorText)', '$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Composition.CppLib.props'))" />
+    <Error Condition="'$(UseFabric)'=='true' And !Exists('$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Composition.CppLib.targets') And ('$(ReactNativeWindowsCanary)'!='true' And '$([MSBuild]::VersionLessThan($(ReactNativeWindowsMajor).$(ReactNativeWindowsMinor).$(ReactNativeWindowsPatch), 0.76.0))')" Text="$([System.String]::Format('$(ErrorText)', '$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.Composition.CppLib.targets'))" />
+    <Error Condition="!Exists('$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.CppLib.props') And ('$(ReactNativeWindowsCanary)'=='true' Or '$([MSBuild]::VersionGreaterThanOrEquals($(ReactNativeWindowsMajor).$(ReactNativeWindowsMinor).$(ReactNativeWindowsPatch), 0.76.0))')" Text="$([System.String]::Format('$(ErrorText)', '$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.CppLib.props'))" />
+    <Error Condition="!Exists('$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.CppLib.targets') And ('$(ReactNativeWindowsCanary)'=='true' Or '$([MSBuild]::VersionGreaterThanOrEquals($(ReactNativeWindowsMajor).$(ReactNativeWindowsMinor).$(ReactNativeWindowsPatch), 0.76.0))')" Text="$([System.String]::Format('$(ErrorText)', '$(ReactNativeWindowsDir)\PropertySheets\External\Microsoft.ReactNative.CppLib.targets'))" />
+  </Target>
+</Project>

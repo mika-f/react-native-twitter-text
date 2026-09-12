@@ -153,7 +153,9 @@ interface ParseResults {
 
 - React Native >= 0.76 (New Architecture / Turbo Modules)
 - iOS >= 13.4
+- macOS >= 10.15 (react-native-macos)
 - Android minSdk >= 24
+- Windows 10 SDK >= 10.0.19041.0 / Windows 10 version 1903+ (react-native-windows) — see [windows/README.md](windows/README.md)
 
 ## Contributing
 
