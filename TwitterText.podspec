@@ -10,7 +10,11 @@ Pod::Spec.new do |s|
   s.license      = package["license"]
   s.authors      = package["author"]
 
-  s.platforms    = { :ios => min_ios_version_supported }
+  # The Objective-C implementation only touches Foundation (no UIKit), so the
+  # same sources build unmodified for react-native-macos; :osx is hardcoded
+  # since min_ios_version_supported (from React Native's pod helpers) has no
+  # macOS equivalent.
+  s.platforms    = { :ios => min_ios_version_supported, :osx => "10.15" }
   s.source       = { :git => "https://github.com/mika-f/react-native-twitter-text.git", :tag => "#{s.version}" }
 
   s.source_files = [

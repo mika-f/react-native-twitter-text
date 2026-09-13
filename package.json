@@ -26,6 +26,7 @@
     "lib",
     "android",
     "ios",
+    "windows",
     "cpp",
     "*.podspec",
     "app.plugin.js",
@@ -48,6 +49,13 @@
     "!android/gradlew",
     "!android/gradlew.bat",
     "!android/local.properties",
+    "!windows/**/Debug",
+    "!windows/**/Release",
+    "!windows/**/ARM64",
+    "!windows/**/x64",
+    "!windows/**/x86",
+    "!windows/**/.vs",
+    "!windows/**/*.user",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
@@ -65,7 +73,9 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "macos",
+    "windows"
   ],
   "repository": {
     "type": "git",
@@ -104,7 +114,17 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-macos": "*",
+    "react-native-windows": "*"
+  },
+  "peerDependenciesMeta": {
+    "react-native-macos": {
+      "optional": true
+    },
+    "react-native-windows": {
+      "optional": true
+    }
   },
   "workspaces": [
     "example"
@@ -134,6 +154,11 @@
     "jsSrcsDir": "src",
     "android": {
       "javaPackageName": "com.natsuneko.twittertext"
+    },
+    "windows": {
+      "namespace": "TwitterTextCodegen",
+      "outputDirectory": "windows/TwitterText/codegen",
+      "separateDataTypes": true
     }
   },
   "release-it": {
