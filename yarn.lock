@@ -2789,6 +2789,13 @@ __metadata:
   peerDependencies:
     react: "*"
     react-native: "*"
+    react-native-macos: "*"
+    react-native-windows: "*"
+  peerDependenciesMeta:
+    react-native-macos:
+      optional: true
+    react-native-windows:
+      optional: true
   languageName: unknown
   linkType: soft
 
